@@ -1,0 +1,41 @@
+{
+  "name": "Chrome Extension Angular",
+  "description": "Chrome Extension Angular",
+  "version": "0.0.0",
+  "manifest_version": 3,
+  "homepage_url": "https://github.com/ebizbase/chrome-extension-angular",
+  "icons": {
+    "16": "icons/icon-16x16.png",
+    "32": "icons/icon-32x32.png",
+    "48": "icons/icon-48x48.png",
+    "128": "icons/icon-128x128.png"
+  },
+  "permissions": [
+    "tabs",
+    "storage"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "action": {
+    "default_icon": "icons/icon-128x128.png",
+    "default_popup": "popup/index.html"
+  },
+  "options_page": "options/index.html",
+  "background": {
+    "service_worker": "background-script/main.js"
+  },
+  "content_scripts": [
+    {
+      "all_frames": false,
+      "js": [
+        "content-script/main.js"
+      ],
+      "matches": [
+        "<all_urls>"
+      ],
+      "run_at": "document_start"
+    }
+  ],
+  "devtools_page": "devtools.html"
+}
